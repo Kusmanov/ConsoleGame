@@ -22,15 +22,13 @@ public class FrameBuilder {
                 if (Arrays.equals(unit.getLocation(), new int[]{i, j})) {
                     if (unit.getClass().getSimpleName().equals("Hero")) {
                         locality[i][j] = 'H';
-                        try {
+                        if (iterator.hasNext()) {
                             unit = iterator.next();
-                        } catch (Exception ignored) {
                         }
                     } else {
                         locality[i][j] = 'M';
-                        try {
+                        if (iterator.hasNext()) {
                             unit = iterator.next();
-                        } catch (Exception ignored) {
                         }
                     }
                 }

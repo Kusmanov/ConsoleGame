@@ -2,8 +2,8 @@ package org.example.entity;
 
 import java.util.Arrays;
 
-public class Unit {
-    private String name;
+public abstract class Unit {
+    private final String name;
     private int[] location;
     private int power;
     private int agility;
