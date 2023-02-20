@@ -1,6 +1,6 @@
 package org.example.enums;
 
-public enum ANSIColor {
+public enum ANSICodes {
     BLACK("\u001b[40m"),
     RED("\u001b[41m"),
     GREEN("\u001b[42m"),
@@ -13,7 +13,7 @@ public enum ANSIColor {
 
     private final String value;
 
-    ANSIColor(String value) {
+    ANSICodes(String value) {
         this.value = value;
     }
 

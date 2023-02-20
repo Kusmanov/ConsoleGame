@@ -1,10 +1,10 @@
 package org.example.enums;
 
 public enum PixelMapping {
-    HILL(ANSIColor.MAGENTA.getValue()),
-    RIVER(ANSIColor.BLUE.getValue()),
-    BRIDGE(ANSIColor.WHITE.getValue()),
-    EMPTY(ANSIColor.BLACK.getValue());
+    HILL(ANSICodes.MAGENTA.getValue()),
+    RIVER(ANSICodes.CYAN.getValue()),
+    BRIDGE(ANSICodes.WHITE.getValue()),
+    EMPTY(ANSICodes.BLACK.getValue());
 
     private final String value;
 
