@@ -1,14 +1,43 @@
 package org.example.utils;
 
-import org.example.data.Localities;
+import org.example.entity.Unit;
 import org.example.enums.ANSICodes;
 import org.example.enums.PixelMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Objects;
+
 public class FrameBuilder {
     public static void getFrame() {
-        for (int i = 0; i < Localities.DEFAULT.length; i++) {
-            for (int j = 0; j < Localities.DEFAULT[0].length; j++) {
-                switch (Localities.DEFAULT[i][j]) {
+        if (StageBuilder.getStage() == 0) {
+            StageBuilder.nextStage();
+        }
+
+        char[][] locality = StageBuilder.getLocality();
+        Iterator<Unit> iterator = StageBuilder.getUnitArrayList().iterator();
+        Unit unit = iterator.next();
+
+        for (int i = 0; i < locality.length; i++) {
+            for (int j = 0; j < locality[0].length; j++) {
+                if (Arrays.equals(unit.getLocation(), new int[]{i, j})) {
+                    if (unit.getClass().getSimpleName().equals("Hero")) {
+                        locality[i][j] = 'H';
+                        try {
+                            unit = iterator.next();
+                        } catch (Exception ignored) {
+                        }
+                    } else {
+                        locality[i][j] = 'M';
+                        try {
+                            unit = iterator.next();
+                        } catch (Exception ignored) {
+                        }
+                    }
+                }
+
+                switch (locality[i][j]) {
                     case 'L':
                         System.out.print(PixelMapping.HILL.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
@@ -17,6 +46,12 @@ public class FrameBuilder {
                         break;
                     case 'R':
                         System.out.print(PixelMapping.RIVER.getValue() + "  " + ANSICodes.RESET.getValue());
+                        break;
+                    case 'H':
+                        System.out.print(PixelMapping.HERO.getValue() + "  " + ANSICodes.RESET.getValue());
+                        break;
+                    case 'M':
+                        System.out.print(PixelMapping.MONSTER.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                     case ' ':
                         System.out.print(PixelMapping.EMPTY.getValue() + "  " + ANSICodes.RESET.getValue());

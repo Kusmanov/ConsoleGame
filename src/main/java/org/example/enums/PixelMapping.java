@@ -4,7 +4,9 @@ public enum PixelMapping {
     HILL(ANSICodes.MAGENTA.getValue()),
     RIVER(ANSICodes.CYAN.getValue()),
     BRIDGE(ANSICodes.WHITE.getValue()),
-    EMPTY(ANSICodes.BLACK.getValue());
+    EMPTY(ANSICodes.BLACK.getValue()),
+    HERO(ANSICodes.RED.getValue()),
+    MONSTER(ANSICodes.YELLOW.getValue());
 
     private final String value;
 
