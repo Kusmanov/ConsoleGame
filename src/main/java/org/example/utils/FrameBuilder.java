@@ -4,10 +4,8 @@ import org.example.entity.Unit;
 import org.example.enums.ANSICodes;
 import org.example.enums.PixelMapping;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Objects;
 
 public class FrameBuilder {
     public static void getFrame() {

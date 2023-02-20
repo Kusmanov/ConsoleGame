@@ -27,7 +27,6 @@ public class StageBuilder {
         } else if (stage == 3) {
 
         }
-
     }
 
     public static int getStage() {
