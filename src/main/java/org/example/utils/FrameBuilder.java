@@ -1,8 +1,9 @@
 package org.example.utils;
 
+import org.example.entity.Hero;
 import org.example.entity.Unit;
 import org.example.enums.ANSICodes;
-import org.example.enums.PixelMapping;
+import org.example.enums.ANSICodeMapping;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -16,6 +17,12 @@ public class FrameBuilder {
         char[][] locality = StageBuilder.getLocality();
         Iterator<Unit> iterator = StageBuilder.getUnitArrayList().iterator();
         Unit unit = iterator.next();
+
+        Hero hero = null;
+
+        if (unit.getClass().getSimpleName().equals("Hero")) {
+            hero = (Hero) unit;
+        }
 
         for (int i = 0; i < locality.length; i++) {
             for (int j = 0; j < locality[0].length; j++) {
@@ -32,22 +39,43 @@ public class FrameBuilder {
 
                 switch (locality[i][j]) {
                     case 'L':
-                        System.out.print(PixelMapping.HILL.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.HILL.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                     case 'B':
-                        System.out.print(PixelMapping.BRIDGE.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.BRIDGE.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                     case 'R':
-                        System.out.print(PixelMapping.RIVER.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.RIVER.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                     case 'H':
-                        System.out.print(PixelMapping.HERO.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.HERO.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                     case 'M':
-                        System.out.print(PixelMapping.MONSTER.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.MONSTER.getValue() + "  " + ANSICodes.RESET.getValue());
+                        break;
+                    case 'X':
+                        if (hero != null) {
+                            if (i == 0 && j == 1) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + "H:" + ANSICodes.RESET.getValue());
+                            } else if (i == 0 && j == 2) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + hero.getHealth() + ANSICodes.RESET.getValue());
+                            } else if (i == 0 && j == 4) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + "A:" + ANSICodes.RESET.getValue());
+                            } else if (i == 0 && j == 5) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + hero.getAgility() + ANSICodes.RESET.getValue());
+                            } else if (i == 0 && j == 7) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + "P:" + ANSICodes.RESET.getValue());
+                            } else if (i == 0 && j == 8) {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + hero.getPower() + ANSICodes.RESET.getValue());
+                            } else {
+                                System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + "  " + ANSICodes.RESET.getValue());
+                            }
+                        } else {
+                            System.out.print(ANSICodeMapping.RIVER.getValue() + ANSICodeMapping.TEXT.getValue() + "  " + ANSICodes.RESET.getValue());
+                        }
                         break;
                     case ' ':
-                        System.out.print(PixelMapping.EMPTY.getValue() + "  " + ANSICodes.RESET.getValue());
+                        System.out.print(ANSICodeMapping.EMPTY.getValue() + "  " + ANSICodes.RESET.getValue());
                         break;
                 }
             }

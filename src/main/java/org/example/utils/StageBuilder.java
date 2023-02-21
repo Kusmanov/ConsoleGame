@@ -17,25 +17,25 @@ public class StageBuilder {
 
         if (stage == 0) {
             locality = Localities.DEFAULT;
-            unitArrayList.add(new Hero("hero", getHeroLocation(), 10, 10, 10));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
+            unitArrayList.add(new Hero(getHeroLocation(), 10, 10, 10));
+            unitArrayList.add(new Monster(getMonsterLocation(), 10, 10, 10));
             stage++;
         } else if (stage == 1) {
             locality = Localities.DEFAULT;
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
+            unitArrayList.add(new Monster(getMonsterLocation(), 10, 10, 10));
+            unitArrayList.add(new Monster(getMonsterLocation(), 10, 10, 10));
             stage++;
         } else if (stage == 2) {
             locality = Localities.DEFAULT;
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
             stage++;
         } else if (stage == 3) {
             locality = Localities.DEFAULT;
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
-            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster(getMonsterLocation(), 20, 20, 20));
             stage++;
         }
     }

@@ -3,22 +3,16 @@ package org.example.entity;
 import java.util.Arrays;
 
 public abstract class Unit {
-    private final String name;
     private int[] location;
     private int power;
     private int agility;
     private int health;
 
-    public Unit(String name, int[] location, int power, int agility, int health) {
-        this.name = name;
+    public Unit(int[] location, int power, int agility, int health) {
         this.location = location;
         this.power = power;
         this.agility = agility;
         this.health = health;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int[] getLocation() {
@@ -56,7 +50,6 @@ public abstract class Unit {
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{" +
-                "name='" + name + '\'' +
                 ", location=" + Arrays.toString(location) +
                 ", power=" + power +
                 ", agility=" + agility +
