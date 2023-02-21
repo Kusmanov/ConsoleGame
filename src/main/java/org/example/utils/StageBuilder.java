@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class StageBuilder {
 
     private static int stage = 0;
-    private static ArrayList<Unit> unitArrayList = new ArrayList<>();
+    private static final ArrayList<Unit> unitArrayList = new ArrayList<>();
     private static char[][] locality;
 
     public static void nextStage() {
@@ -21,11 +21,22 @@ public class StageBuilder {
             unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
             stage++;
         } else if (stage == 1) {
-
+            locality = Localities.DEFAULT;
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 10, 10, 10));
+            stage++;
         } else if (stage == 2) {
-
+            locality = Localities.DEFAULT;
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            stage++;
         } else if (stage == 3) {
-
+            locality = Localities.DEFAULT;
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            unitArrayList.add(new Monster("monster", getMonsterLocation(), 20, 20, 20));
+            stage++;
         }
     }
 
